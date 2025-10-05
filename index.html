@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-vindo à ADEVV</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --primary-color: #007BFF; --primary-hover: #0056b3; --dark-color: #1a1a1a; --light-color: #FFFFFF; --grey-color: #f0f2f5; --border-color: #dcdfe6; --text-light: #6b6b6b; --error-color: #e74c3c; }
+    html { scrollbar-width: none; -ms-overflow-style: none; }
+    body::-webkit-scrollbar { display: none; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Poppins", sans-serif; color: var(--dark-color); background-color: var(--grey-color); line-height: 1.6; overflow-x: hidden; }
+    h1, h2 { font-family: "Anton", sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+    .scroll-container { min-height: 100vh; }
+    .hero-section { height: 100vh; display: flex; align-items: center; justify-content: center; background-color: var(--grey-color); position: fixed; top: 0; left: 0; right: 0; z-index: 10; animation: hero-shrink linear forwards; animation-timeline: scroll(); animation-range: 0vh 70vh; overflow: hidden; }
+    @keyframes hero-shrink { from { opacity: 1; } to { opacity: 0; pointer-events: none; } }
+    .hero-content { text-align: center; padding: 2rem; animation: text-movement linear forwards; animation-timeline: scroll(); animation-range: 0vh 70vh; }
+    @keyframes text-movement { from { transform: translateY(0) scale(1); } to { transform: translateY(-40px) scale(0.9); } }
+    .welcome-text { font-size: clamp(3rem, 10vw, 6rem); color: var(--dark-color); }
+    .bible-verse { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 1rem auto 2rem; font-weight: 500; }
+    .bible-verse span { display: block; margin-top: 0.5rem; font-size: 0.9rem; font-style: italic; color: var(--dark-color); }
+    .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-light); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; animation: bounce 2s ease-in-out infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    .form-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; position: relative; z-index: 20; background-color: var(--grey-color); margin-top: 100vh; }
+    .form-container { width: 100%; max-width: 500px; background: var(--light-color); border-radius: 8px; padding: 3rem; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    .form-header { text-align: center; margin-bottom: 2.5rem; }
+    .form-header h2 { font-size: 2.5rem; color: var(--dark-color); }
+    .form-header p { color: var(--text-light); font-size: 1rem; }
+    .visitor-form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dark-color); }
+    .form-group input, .form-group select { padding: 0.9rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: #fff; color: var(--dark-color); transition: border-color 0.2s, box-shadow 0.2s; font-family: "Poppins", sans-serif; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); }
+    .submit-btn { padding: 1rem; background: var(--primary-color); color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background-color 0.2s, transform 0.2s; margin-top: 1rem; }
+    .submit-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .instagram-btn { display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.9rem; background: var(--dark-color); color: white; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: background-color 0.2s, transform 0.2s; }
+    .instagram-btn:hover { background: #000; transform: translateY(-2px); }
+    @media (max-width: 640px) { .form-container { padding: 2.5rem 1.5rem; } }
+  </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="welcome-text">Seja bem-vindo à ADEVV</h1>
+                <p class="bible-verse">Respondeu Jesus: "Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por mim." <br> <span>João 14:6</span></p>
+                <div class="scroll-indicator"><span>Role para baixo</span><svg width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+            </div>
+        </section>
+        <section class="form-section">
+          <div class="form-container">
+            <div class="form-header">
+              <h2>Cadastro de Visitante</h2>
+              <p>Preencha seus dados para mantermos contato.</p>
+            </div>
+            <form id="visitorForm" class="visitor-form">
+                <div class="form-group"><label for="name">Nome completo</label><input type="text" id="name" name="name" placeholder="Digite seu nome" required></div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+                </div>
+                <div class="form-group"><label for="age">Idade</label><input type="number" id="age" name="age" placeholder="Sua idade" required></div>
+                <div class="form-group"><label for="birthdate">Data de aniversário</label><input type="date" id="birthdate" name="birthdate" required></div>
+                <div class="form-group"><label for="maritalStatus">Estado civil</label><select id="maritalStatus" name="maritalStatus" required><option value="" disabled selected>Selecione uma opção</option><option value="solteiro">Solteiro(a)</option><option value="casado">Casado(a)</option></select></div>
+                <button type="submit" class="submit-btn">Enviar cadastro</button>
+                <a href="https://www.instagram.com/adevvsede/" target="_blank" rel="noopener noreferrer" class="instagram-btn">Siga-nos no Instagram</a>
+            </form>
+          </div>
+        </section>
+    </div>
+  <script>
+    // --- LÓGICA PARA MÁSCARA DE WHATSAPP ---
+    const whatsappInput = document.getElementById("whatsapp");
+    whatsappInput.addEventListener("input", (e) => {
+      let value = e.target.value.replace(/\D/g, "");
+      if (value.length > 11) { value = value.slice(0, 11); }
+      if (value.length > 6) { value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3"); } 
+      else if (value.length > 2) { value = value.replace(/^(\d{2})(\d{0,5})/, "($1) $2"); } 
+      else if (value.length > 0) { value = value.replace(/^(\d*)/, "($1"); }
+      e.target.value = value;
+    });
+
+    // --- LÓGICA DE ENVIO DO FORMULÁRIO ---
+    const form = document.getElementById("visitorForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Impede o recarregamento da página
+
+      // SUBSTITUA A LINHA ABAIXO PELA SUA URL PÚBLICA DO N8N
+      const N8N_WEBHOOK_URL = "https://SUA_URL_PUBLICA_DO_N8N.ngrok.io/webhook/ec162464-ac2c-457a-90d2-a7a6bc5175b2";
+
+      const formData = {
+        name: document.getElementById("name").value,
+        whatsapp: document.getElementById("whatsapp").value,
+        age: document.getElementById("age").value,
+        birthdate: document.getElementById("birthdate").value,
+        maritalStatus: document.getElementById("maritalStatus").value,
+      };
+      
+      try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) { throw new Error('Falha no envio para a automação.'); }
+        
+        // Se o envio deu certo, redireciona para a página de agradecimento
+        const userName = encodeURIComponent(formData.name.split(' ')[0]);
+        window.location.href = `agradecimento.html?nome=${userName}`;
+
+      } catch (error) {
+        console.error("Erro ao enviar para o n8n:", error);
+        alert("Não foi possível enviar o seu cadastro. Verifique sua conexão e tente novamente.");
+      }
+    });
+  </script>
+</body>
+</html>
